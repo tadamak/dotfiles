@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+  dotfiles:
+    build: .
+    image: tadamak/dotfiles:latest
+    working_dir: /root/dotfiles
+    volumes:
+      - .:/root/dotfiles

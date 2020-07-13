@@ -1,0 +1,5 @@
+docker-compose.yml
+Dockerfile
+.DS_Store
+.git
+.zsh-completions
