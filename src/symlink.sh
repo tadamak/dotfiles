@@ -1,5 +1,3 @@
-#!/bin/sh
-
 symlink() {
   src="${1}"
   dest="${2}"
@@ -29,9 +27,14 @@ symlink() {
 
 create_symlinks() {
   echo "Creating symlinks..."
+
+  local dir
+  dir=$(pwd)
+  cd ${base_dir}
+
   for item in .* ; do
     case "${item}" in
-      .|..|.git)
+      .|..|.git|.dockerignore)
         continue
         ;;
       *)
@@ -40,9 +43,11 @@ create_symlinks() {
     esac
   done
 
-  echo "Adding executables to ${bin_dir}..."
-  mkdir -p "${bin_dir}"
-  for item in bin/* ; do
-    symlink "${base_dir}/${item}" "${bin_dir}/$(basename $item)"
-  done
+  # echo "Adding executables to ${bin_dir}..."
+  # mkdir -p "${bin_dir}"
+  # for item in bin/* ; do
+  #   symlink "${base_dir}/${item}" "${bin_dir}/$(basename ${item})"
+  # done
+
+  cd $dir
 }

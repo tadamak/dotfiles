@@ -1,12 +1,10 @@
-#!/bin/sh
-
 zsh_clean() {
-  rm -rf ${base_dir}/zsh-completions
+  rm -rf ${base_dir}/.zsh-completions
   rm -rf ${HOME}/.zcompdump
 }
 
 zsh_install_completions() {
-  git clone --quiet --depth=1 https://github.com/zsh-users/zsh-completions .zsh-completions
+  git clone --quiet --depth=1 https://github.com/zsh-users/zsh-completions ${base_dir}/.zsh-completions
 }
 
 install_zsh() {

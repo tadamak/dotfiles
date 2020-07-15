@@ -1,5 +1,3 @@
-#!/bin/sh
-
 install_binary() {
   echo "Installing ${1}..."
 
@@ -8,6 +6,7 @@ install_binary() {
   local file_path="${bin_dir}/${name}"
 
   rm -rf "${file_path}"
+  sudo update-ca-certificates
   curl -L "${url}" -o "${file_path}"
 
   chmod +x ${file_path}
@@ -15,6 +14,8 @@ install_binary() {
 
 install_binaries() {
   echo "Installing binaries..."
+
+  mkdir -p ${bin_dir}
 
   install_binary "diff-so-fancy" "https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy"
 }

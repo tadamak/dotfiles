@@ -1,5 +1,4 @@
-#!/bin/sh
-
+echo "read platform.sh..."
 platform=""
 
 get_platform() {

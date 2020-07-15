@@ -1,5 +1,3 @@
-#!/bin/sh
-
 install_fzf() {
   echo "Installing fzf..."
 

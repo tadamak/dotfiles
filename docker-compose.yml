@@ -5,5 +5,7 @@ services:
     build: .
     image: tadamak/dotfiles:latest
     working_dir: /root/dotfiles
+    stdin_open: true
+    tty: true
     volumes:
       - .:/root/dotfiles
