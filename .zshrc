@@ -5,6 +5,7 @@ setopt HIST_IGNORE_DUPS
 bindkey -e
 
 export PATH="${HOME}/bin:${PATH}"
+export BAT_PAGER="less -RF"
 export BAT_STYLE="plain"
 
 alias ...='cd ../..'
