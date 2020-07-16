@@ -18,5 +18,6 @@ install_bat
 install_ripgrep
 install_zsh
 create_symlinks
+install_zim
 
 echo "Done."
