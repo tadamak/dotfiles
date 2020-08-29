@@ -1,0 +1,116 @@
+[user]
+    name = tadamak
+    email = tadamak@gmail.com
+[color]
+    ui = auto
+[core]
+    pager = delta
+    excludesfile = ~/.gitignore
+    safecrlf = false
+    quotepath = off
+    autocrlf = false
+    precomposeunicode = true
+[apply]
+    whitespace = warn
+[github]
+    user = tadamak
+[alias]
+    b = branch
+  	ba = branch -a
+    bb = !git for-each-ref --count=20 --sort=-committerdate refs/heads/ --format='%(authordate:iso8601) %(refname:short)'
+    bd = branch -D
+    br = branch -r
+    ca = commit -m 'add'
+    ci = commit
+    co = checkout
+    cob = checkout -b
+    cod = checkout develop
+    com = checkout master
+    d = diff
+    db = diff HEAD
+    ds = diff --cached
+    du = diff
+    f = fetch
+    fix = commit --amend
+    fixup = !git fu
+    fu = commit --amend -C HEAD
+    g = grep -n
+    l = log
+    l1 = log --pretty=oneline --abbrev-commit
+    lg = log --graph --pretty=oneline --abbrev-commit --decorate
+    lgd = !git lg
+    lgD = !git lg --no-decorate
+    lgr = !git lg -n10
+    lgrr = !git lg -n20
+    lgrrr = !git lg -n30
+    #lr
+    ls = ls-files
+    m = merge --log
+    mb = merge-base
+    merge-to-integrate = !git m --no-ff
+    merge-to-pull = !git m --ff
+    mi = !git merge-to-integrate
+    mp = !git merge-to-pull
+    openpr = "!f() { hub browse -- `git log --merges --oneline --reverse --ancestry-path $1...HEAD | grep 'Merge pull request #' | head -n 1 | cut -f5 -d' ' | sed -e 's%#%pull/%'`; };f"
+    pod = push origin develop
+    pom = push origin master
+    prs = "!f() { git fetch $1 refs/pull-requests/$2/from:pr$2; } ; f"
+    pud = pull upstream develop
+    pum = pull upstream master
+    pushup = "!gitbranchname() { git symbolic-ref --short HEAD; }; gitpushupstream() { git push --set-upstream origin `gitbranchname`; }; gitpushupstream"
+    ra = rebase --abort
+    rbm = !git branch --merged upstream/master | grep $1 | xargs -n1 -t git branch -d
+    rbd = !git branch --merged upstream/develop | grep $1 | xargs -n1 -t git branch -d
+    rc = rebase --continue
+    review = !git log -p --reverse \"${1:master}..HEAD\" --
+    rh = reset --hard
+    ri = !git rebase -i \"HEAD~${1:-10}\"
+    rib = !git rebase -i ${git merge-base \"${1:-HEAD}\" HEAD)
+    rma = !git status | grep 'deleted' | awk '{print $3}' | xargs git rm
+    rs = reset --soft
+    rw = reset --hard ORIG_HEAD
+    rx = reset --mixed
+    s = show
+    s1 = show HEAD@{1}
+    s2 = show HEAD@{2}
+    s3 = show HEAD@{3}
+    sa = stash apply
+    sd = stash drop
+    showpr = !"f() { git log --merges --oneline --reverse --ancestry-path $1...HEAD | grep 'Merge pull request #' | head -n 1; };f"
+    since = !git lg \"$1..HEAD\"
+    sl = stash list
+    sm = submodule
+    sma = submodule add
+    smi = submodule init
+    sms = submodule status
+    smu = submodule update
+    sp = stash pop
+    ss = stash show stash@{0}
+    ssa = stash apply stash@{0}
+    sss = stash show stash@{1}
+    sssa = stash apply stash@{1}
+    ss1 = stash show stash@{1}
+    ss1a = stash apply stash@{1}
+    st = status --short --branch
+    stpl = subtree pull
+    stps = subtree push
+    subadd = "!f () { git subtree add --prefix=${1}  --squash ${2}  ${3} ;};f"
+    subpush = "!f () { git subtree push --prefix=${1}  --squash ${2}  ${3} ;};f"
+    subpull = "!f () { git subtree pull --prefix=${1}  --squash ${2}  ${3} ;};f"
+    t = tag
+    td = tag -d
+    tv = !git tag \"$1\" -m \"Version $1\"
+[push]
+    default = matching
+[http]
+    sslVerify = false
+[ghq]
+    root = ~/src
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    side-by-side = true
+    line-numbers-left-format = ""
+    line-numbers-right-format = "│ "
+    syntax-theme = Nord
+    navigate = true

@@ -17,5 +17,5 @@ install_binaries() {
 
   mkdir -p ${bin_dir}
 
-  install_binary "diff-so-fancy" "https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy"
+  # install_binary "diff-so-fancy" "https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy"
 }
